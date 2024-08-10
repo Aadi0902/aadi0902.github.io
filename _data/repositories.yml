@@ -4,6 +4,7 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
+  - KoHoVentures/laser_cart_core
   - Aadi0902/2.120-Project
   - Aadi0902/CS4375-Machine-Learning-Assignments
   - Aadi0902/AirSim
