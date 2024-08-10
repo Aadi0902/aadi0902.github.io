@@ -78,11 +78,32 @@
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "MIT MechE Grace H. Chang and Peter K. Mansfield Fellowship",
+      "date": "2021-09",
+      "awarder": "MIT Department of Mechanical Engineering",
+      "url": "https://engineering.mit.edu/students/graduate-student-fellowships/",
+      "summary": "Fellowship that covers research and tuition costs as a graduate student."
+    },
+    {
+      "title": "MIT 2.12 Intro. to Robotics - Most Valuable Engineer Award",
+      "date": "2022",
+      "awarder": "MIT Department of Mechanical Engineering",
+      "url": ,
+      "summary": "Awarded as the most valuable engineer contributor for 2.12 INtro to Robotics course taught at MIT."
+    },
+    {
+      "title": "2021 Undergraduate Research Scholar Award",
+      "date": "2021",
+      "awarder": "UT Dallas Office of UNdergraduate Education",
+      "url": "https://oue.utdallas.edu/research/undergraduate-research-scholar-awards/#:~:text=The%20Undergraduate%20Research%20Scholar%20Awards,undergraduate%20researchers%20at%20UT%20Dallas.",
+      "summary": "2021 research scholar award for my undergraduate research on risk bounded non linear robot motion planning and control."
+    },
+    {
+      "title": "2020 Undergraduate Research Scholar Award",
+      "date": "2020",
+      "awarder": "UT Dallas Office of UNdergraduate Education",
+      "url": "https://oue.utdallas.edu/research/undergraduate-research-scholar-awards/#:~:text=The%20Undergraduate%20Research%20Scholar%20Awards,undergraduate%20researchers%20at%20UT%20Dallas.",
+      "summary": "2020 research scholar award for my undergraduate research on cost analysis and design of wind turbine blades."
     }
   ],
   "certificates": [
