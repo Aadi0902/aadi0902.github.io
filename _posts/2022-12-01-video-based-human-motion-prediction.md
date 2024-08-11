@@ -48,7 +48,7 @@ The conventional CNN backbone is used to learn a 2D representation of an input i
 The flattened representation from the CNN is combined with positional encoding and feeded into a transformer encoder. The transformer decoder then takes a fixed number of learned encodings while attending to the encoder output.
 
 #### 3. Feed Forward Network (FFN)
-The output of the decoder is passed to a shared feed forward netowrk (FFN) that either predicts a detection or "no object" class.
+The output of the decoder is passed to a shared feed forward network (FFN) that either predicts a detection or "no object" class.
 
 ___
 
@@ -58,7 +58,7 @@ ___
 {% include figure.liquid loading="eager" path="assets/posts/video_based_human_motion_prediction/pose_inference.jpg" class="img-fluid rounded z-depth-1" %}
 
 
-Human pose estimation is the process of detecting the pose of a person in a given image. For a given skeletal model, the goal is to detect *keypoints* (joints) of a human in a given image frame, followed by joining respective keypoints to generate a skeletal representation of the person. Again, we eqaully consder inference speed and accuracy tradeoff to select the best model for 2D pose detection.
+Human pose estimation is the process of detecting the pose of a person in a given image. For a given skeletal model, the goal is to detect *keypoints* (joints) of a human in a given image frame, followed by joining respective keypoints to generate a skeletal representation of the person. Again, we equally consider inference speed and accuracy tradeoff to select the best model for 2D pose detection.
 
 
 
@@ -72,22 +72,22 @@ Human pose estimation is the process of detecting the pose of a person in a give
 
 <br>
 
-For fast online video pose estimation, while achieving better trade off between accuracy and efficiency, we select ViPNAS for online pose estimation due to efficient pose estimation. They key to this architecture's efficiency is allocation of different computational resources to different frames.
+For fast online video pose estimation, while achieving better trade off between accuracy and efficiency, we select ViPNAS for online pose estimation due to efficient pose estimation. The key to this architecture's efficiency is allocation of different computational resources to different frames.
 <br><br>
 
 
 {% include figure.liquid loading="eager" path="assets/posts/video_based_human_motion_prediction/vipnas_model_architecture.jpg" class="img-fluid rounded z-depth-1" %}
 
 <br>
-As shown above, the architecture can be decompsed into the following steps:
+As shown above, the architecture can be decomposed into the following steps:
 1. Select a set of T + 1 frames in a video
 2. Out of the selected frames, select 1st frame as the key frame 
   1. Apply spatial video pose estimation network (S-ViPNet) on the same to localize human poses.
-  2. Use heatmaps to encode joint locations as Gaussian peaks. 
+  2. Use heat maps to encode joint locations as Gaussian peaks. 
 3. For the non-key frames using temporal video pose estimation network (T-ViPNets):
   1. Some CNN layers are used for feature extraction.
-  2. Fuse features of current frame with heatmaps of last frame
-  3. Pass fused features through remaining CNN layers to obtain heatmaps.
+  2. Fuse features of current frame with heat maps of last frame
+  3. Pass fused features through remaining CNN layers to obtain heat maps.
 
 The main analogy here is that poses in adjacent video frames are temporally correlated and thus light weight models like T-VipNets can reasonably estimate joint locations with guidance from previous frames.
 
@@ -105,7 +105,7 @@ The goal of this layer is to infer the 3D poses given the 2D pose estimates from
 
 
 
-The reason for picking tmporal convolutions over RNNs is:
+The reason for picking temporal convolutions over RNNs is:
 1. Convolutional architecture offers precise control over temporal receptive fields, which the authors of the paper found important for 3D pose estimation.
 2. Convolutional models enable parallelization over batch and time dimension and also do not suffer from vanishing and exploding gradients.
 
@@ -115,7 +115,7 @@ To improve settings where labeled 3D ground-truth pose data is limited,a semi-su
 {% include figure.liquid loading="eager" path="assets/posts/video_based_human_motion_prediction/video_pose3d_sem_supervised.jpg" class="img-fluid rounded z-depth-1" %}
 
 
-Essentially an unlabeled video with off the shelf 2D keypoint detector is used for a supervised loss function with back propogation loss term, and then the problem is setup as an auto encoding problem:
+Essentially an unlabeled video with off the shelf 2D keypoint detector is used for a supervised loss function with back propagation loss term, and then the problem is setup as an auto encoding problem:
 1. Encoder: 2D joint coordinates -> 3D pose estimation
 2. Decoder 3D pose -> 2D joint coordinates
 
@@ -127,11 +127,11 @@ ___
 {% include figure.liquid loading="eager" path="assets/posts/video_based_human_motion_prediction/pose_prediction.jpg" class="img-fluid rounded z-depth-1" %}
 
 
-The goal of 3D pose prediction is given a past horizon of 3D joint poses, predict future joint poses over a given time horizon. For this task, we use the architecture called Histor Repats Itself (HisRepItself) which tackles human motion prediction via motion attention. 
+The goal of 3D pose prediction is given a past horizon of 3D joint poses, predict future joint poses over a given time horizon. For this task, we use the architecture called History Repeats Itself (HisRepItself) which tackles human motion prediction via motion attention. 
 
 For the purposes of this approach, we purely look at past frames over a certain horizon to predict future human poses over another horizon. The underlying hypothesis is since humans tend to repeat motion across long time periods, sub sequences in motion history can be discovered via motion attention.
 
-This motion attention is then feeded in to the prediction model which consists of a Graph Convolutionl Network (GCN) to capture the spatial relationship of the human skeletal joints.
+This motion attention is then feeded in to the prediction model which consists of a Graph Convolutional Network (GCN) to capture the spatial relationship of the human skeletal joints.
 
 The visualization of the architecture is shown below:
 
@@ -139,7 +139,7 @@ The visualization of the architecture is shown below:
 {% include figure.liquid loading="eager" path="assets/posts/video_based_human_motion_prediction/HisRepItself_architecture.jpg" class="img-fluid rounded z-depth-1" %}
 
 
-The past poses are shown as blue and red skeletons and predictied ones and green and purple. For a given time frame (M consecutive poses), the Discrete Cosine Transforms are weighed using the computed attention score, and the weighted sum are combined with DCT coefficients of last sub-sequence in the prediction layer to future predictions of human poses. 
+The past poses are shown as blue and red skeletons and predicted ones and green and purple. For a given time frame (M consecutive poses), the Discrete Cosine Transforms are weighed using the computed attention score, and the weighted sum are combined with DCT coefficients of last sub-sequence in the prediction layer to future predictions of human poses. 
 ___
 
 ## Inference results
@@ -153,7 +153,7 @@ The given pipeline structured is implemented on a live video stream coming from 
 | ----------------------|:------:|:--------:|:-----------:|:----------------:|:----------:|
 | Inference speed (fps) | 28     | 54       |      280    |     31           |    **11**  |
 
-Fast inference speeds are crucial in a realtime human robot collaboration task due to which recently we have been seing a rise in well engineeered models like ViPNAS where heavy models are tied together with light weight models in a key frame - non-key frame aproach in order make these models fast while not comprimising on accuracy. 
+Fast inference speeds are crucial in a realtime human robot collaboration task due to which recently we have been seeing a rise in well engineered models like ViPNAS where heavy models are tied together with light weight models in a key frame - non-key frame approach in order make these models fast while not compromising on accuracy. 
 
 ---
 
@@ -161,24 +161,24 @@ Fast inference speeds are crucial in a realtime human robot collaboration task d
 
 The key takeaway from this pipeline based approach for human motion prediction is interpretability of the sub tasks. By breaking down the goal into individual deep learning based models instead of learning end to end, we are able to identify and debug errors individually as well as the integration of domain knowledge in every sub task becomes easier.
 
-Also due to the modular approach, it easy to replace certain parts of the model depending on the task at hand and retrain certain parts instead of going through the pain of retraining the entire model. Analyzing performance of individual comonents including attributes like inference speed makes it easier to highlight pain points of an approach and select and fine tune models accordingly, thus helping scale the architecture.
+Also due to the modular approach, it easy to replace certain parts of the model depending on the task at hand and retrain certain parts instead of going through the pain of retraining the entire model. Analyzing performance of individual components including attributes like inference speed makes it easier to highlight pain points of an approach and select and fine tune models accordingly, thus helping scale the architecture.
 
 That being said, there are plenty of challenges that still need to be addressed in human motion prediction including some arising from the pipeline based approach:
 
 1. Robustness to missing joint positions and noisy data:
      It was noted that when using keypoint detections, often times there were missing joints due to the human being in different orientation or partially outside the frame. Also, when 2D to 3D pose lifting, often times the joint data would be noisy which led to overall bad human pose predictions. A few ways to make this approach more robust is by performing some kind of data imputation on missing joints data, training the predictor with augmented data that has noise as well as missing joints, thus making sure such cases are not our of distribution.
 2. Inference speed: As mentioned earlier, inference speed still remains a challenge in the application of this setup in a realtime collaborative setting. Around 11fps of overall inference speed is still not fast enough for high speed real time tasks and hence inference speed still remains a challenge.
-3. Error and uncertainity propogation:
-   We highlighted that there was some noise and uncertainty associated with infering the human joint pose data which also included errors where there was false detection, and thus throwing the predictor off in the downstream task of prediction. Also how uncertainties and errors from one block of the pipeline propogate to the other still remains an open question.
+3. Error and uncertainty propagation:
+   We highlighted that there was some noise and uncertainty associated with inferring the human joint pose data which also included errors where there was false detection, and thus throwing the predictor off in the downstream task of prediction. Also how uncertainties and errors from one block of the pipeline propagate to the other still remains an open question.
 4. Incorporating context based information:
-   As we noted in the prediction part, we solely rely on past human poses to predict the future ones. In reality, this is not the case since a lot of times we use scene based contextual infromation to drive one's motion.
+   As we noted in the prediction part, we solely rely on past human poses to predict the future ones. In reality, this is not the case since a lot of times we use scene based contextual information to drive one's motion.
 5. Incorporating joint constraints and fusing physics based models:
    Lastly, since this is a well studied dynamics problem, one possibility to improve this approach is to fuse physics based
    models as well as employ hard joint constraints in our model.
 
 ## Conclusion
 
-Thus we study a pipeline based approach towards human motion predicition from a stream of camera frames in the form of a video. We highlight the pros and cons of this approach as well as our reasoning for picking specific models for each individual subtask. We also highlight potential research avenues as well discuss what particular challenges we came accross when experimenting with this approach in an actual setup.
+Thus we study a pipeline based approach towards human motion prediction from a stream of camera frames in the form of a video. We highlight the pros and cons of this approach as well as our reasoning for picking specific models for each individual subtask. We also highlight potential research avenues as well discuss what particular challenges we came across when experimenting with this approach in an actual setup.
 
 ### References
 [1] Zhu Xizhou, Su Weijie, Lu Lewei, Li Bin, Wang Xiaogang, and Dai Jifeng. 2020. Deformable DETR: Deformable transformers for end-to-end object detection. arXiv:2010.04159. Retrieved from https://arxiv.org/abs/2010.04159.
