@@ -119,7 +119,7 @@ Essentially an unlabeled video with off the shelf 2D keypoint detector is used f
 1. Encoder: 2D joint coordinates -> 3D pose estimation
 2. Decoder 3D pose -> 2D joint coordinates
 
-Lastly, since since we require global position as well, 3D trajectory of the person is regressed by a very similar model compared to the pose model.
+Lastly, since we require global position as well, 3D trajectory of the person is regressed by a very similar model compared to the pose model.
 ___
 ## 3D pose prediction
 
@@ -149,9 +149,9 @@ Since the eventual goal of this approach is to leverage accurate human joint pos
 The given pipeline structured is implemented on a live video stream coming from a webcam and inference speeds for each subtask are calculated as shown below:
 
 
-|                       | DETR   |  ViPNAS  | VideoPose3D | Motion attention | Overall fps|
+|                       |  DETR  |  ViPNAS  | VideoPose3D | Motion attention | Overall fps|
 | ----------------------|:------:|:--------:|:-----------:|:----------------:|:----------:|
-| Inference speed (fps) | 28     | 54       |      280    |     31           |    **11**  |
+| Inference speed (fps) |28      |54        |280          |31                |**11**      |
 
 Fast inference speeds are crucial in a realtime human robot collaboration task due to which recently we have been seeing a rise in well engineered models like ViPNAS where heavy models are tied together with light weight models in a key frame - non-key frame approach in order make these models fast while not compromising on accuracy. 
 
@@ -190,3 +190,13 @@ Thus we study a pipeline based approach towards human motion prediction from a s
 [4] Mao, Wei, Miaomiao Liu, and Mathieu Salzmann. "History repeats itself: Human motion prediction via motion attention." European Conference on Computer Vision. Springer, Cham, 2020.
 
 [5] Sengupta, Arindam, et al. "mm-Pose: Real-time human skeletal posture estimation using mmWave radars and CNNs." IEEE Sensors Journal 20.17 (2020): 10032-10044.
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1HSZE1Y7M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1HSZE1Y7M');
+</script>
