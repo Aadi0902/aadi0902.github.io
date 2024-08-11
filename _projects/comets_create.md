@@ -3,9 +3,9 @@ layout: page
 title: Engineering Make-a-thons
 description: weekend long competitions for creative engineering solutions.
 img: assets/projects/make_a_thons/football_punting/football_punt.gif
-importance: 1
+importance: 3
 category: fun
-related_publications: true
+related_publications: false
 ---
 
 Make-a-thon events are events to create prototypes that tackle real-world problems in a collaborative, team-based setting. Through the Comets Create program at Jonsson School at UT Dallas, I competed in 26 hour challenges to design and build prototypes along a given theme. I was fortunate to win multiple of these competitions and here are some highlights of the same:
