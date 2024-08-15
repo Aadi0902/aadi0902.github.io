@@ -3,8 +3,8 @@ layout: page
 title: Controls Optimization and Networks Lab
 description: my work at Controls Optimization and Networks Lab at UT Dallas
 img: assets/img/publication_preview/risk-bounded.gif
-importance: 3
-category: work
+importance: 2
+category: research
 ---
 
 <div>
@@ -38,7 +38,7 @@ category: work
 
 Publications:
 
-[1] Venkatraman Renganathan, Sleiman Safaoui, Aadi M. Kothari, Benjamin Gravell, Iman Shames, and Tyler Summers. “Risk bounded nonlinear robot motion planning with integrated perception & control”. Artificial Intelligence Journal by Elsevier.
+[1] [Venkatraman Renganathan, Sleiman Safaoui, Aadi M. Kothari, Benjamin Gravell, Iman Shames, and Tyler Summers. “Risk bounded nonlinear robot motion planning with integrated perception & control”. Artificial Intelligence Journal by Elsevier.](https://www.sciencedirect.com/science/article/pii/S0004370222001527)
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1HSZE1Y7M"></script>

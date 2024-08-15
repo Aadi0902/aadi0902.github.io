@@ -2,9 +2,9 @@
 layout: page
 title: Autonomous Excavator
 description: autonomous excavator as part of introduction to robotics course project.
-img: assets/projects/autonomous_excavator/IMG_5447.jpg
-importance: 3
-category: work
+img: assets/projects/autonomous_excavator/IMG_5447_resized.jpg
+importance: 5
+category: fun
 ---
 
 <iframe width="600" height="400" src="https://www.youtube.com/embed/Z6_076_dfuI" title="MIT 2.12 Autonomous excavator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -2,7 +2,7 @@
 layout: page
 title: MIT Driverless
 description: autonomous vehicles racing as part of Indy Autonomous Challenge.
-img: assets/projects/mit_driverless/MIT_Indy_Autonomous_Challenge.gif
+img: assets/projects/mit_driverless/MIT_Indy_Autonomous_Challenge_resized.gif
 importance: 1
 category: fun
 ---

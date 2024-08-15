@@ -2,9 +2,9 @@
 layout: page
 title: Robotics Engineer Internship
 description: internship at Pickle Robot Company 2022
-img: assets/projects/pickle_intern/pick_robot_pickle.jpeg
-importance: 4
-category: fun
+img: assets/projects/pickle_intern/pick_robot_pickle_resized.jpeg
+importance: 2
+category: work
 ---
 
 <iframe width="1000" height="600" src="https://www.youtube.com/embed/4hL74HySoiU?si=GrUB_SScFrK4ViUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

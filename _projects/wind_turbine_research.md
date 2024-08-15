@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Wind energy research
-description: cost analysis and design of wind turbine blades.
-img: assets/projects/wind_energy_research/GriffithResearchLabjpg.jpg
+description: my work at Griffith Research Lab at UT Dallas.
+img: assets/projects/wind_energy_research/Research Poster_resized.JPG
 importance: 3
-category: fun
+category: research
 ---
 
 <div class="row">

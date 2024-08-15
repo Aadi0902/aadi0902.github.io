@@ -2,8 +2,8 @@
 layout: page
 title: Engineering Make-a-thons
 description: weekend long competitions for creative engineering solutions.
-img: assets/projects/make_a_thons/football_punting/football_punt.gif
-importance: 3
+img: assets/projects/make_a_thons/football_punting/football_punt_resized.gif
+importance: 6
 category: fun
 related_publications: false
 ---
