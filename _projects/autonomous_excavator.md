@@ -14,7 +14,7 @@ As part of MIT's 2.120 Intro. to Robotics course, my team and I built a robotic 
 - Mobile robot april-tag-based navigation
 - Mobile robot control and path planning
 - Human intervention element
-Out team won the best software award, and I won the most valuable engineer award!
+Our team won the best software award, and I won the most valuable engineer award!
 
 
 <div class="row">
